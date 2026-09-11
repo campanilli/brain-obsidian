@@ -1,14 +1,20 @@
 {
-  "name": "brain-obsidian-client",
-  "version": "0.1.0",
+  "name": "brain-obsidian-vault",
   "private": true,
-  "type": "module",
-  "scripts": {"dev": "vite", "build": "vite build"},
-  "dependencies": {
-    "@vitejs/plugin-react": "^5.0.2",
-    "d3": "^7.9.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+  "version": "0.1.0",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "npm run start -w server"
   },
-  "devDependencies": {"vite": "^7.1.3"}
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }
