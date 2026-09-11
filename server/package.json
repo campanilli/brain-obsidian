@@ -1,23 +1,19 @@
 {
-  "name": "brain-obsidian-vault",
-  "private": true,
+  "name": "brain-obsidian-server",
   "version": "0.1.0",
-  "workspaces": [
-    "server",
-    "client"
-  ],
+  "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev -w server\" \"npm run dev -w client\"",
-    "build": "npm run build -w client",
-    "start": "npm run start -w server"
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3"
-  },
-  "devDependencies": {
-    "concurrently": "^9.2.1"
+    "chokidar": "^4.0.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^16.2.1"
   },
   "engines": {
-    "node": "24.x"
+    "node": ">=22"
   }
 }
